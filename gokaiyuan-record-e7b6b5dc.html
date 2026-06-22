@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开元棋牌 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fff6e5 0%, #fce4c8 40%, #fad5a5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3a2c1e;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: rgba(255, 245, 232, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 3.2rem 2.5rem;
+            border-radius: 48px 16px 48px 16px;
+            box-shadow: 0 12px 30px rgba(170, 110, 50, 0.12);
+            margin-bottom: 2.8rem;
+            text-align: center;
+            border: 1px solid rgba(235, 190, 140, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #9d6d3e, #b77f4a, #8f5f31);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #5e4a32;
+            max-width: 660px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #f3ddc3;
+            padding: 0.4rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #6f502e;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* 白色卡片通用 */
+        .card {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 2.2rem 2.4rem;
+            border-radius: 28px 12px 28px 12px;
+            box-shadow: 0 6px 18px rgba(150, 90, 40, 0.08);
+            margin-bottom: 2.2rem;
+            border: 1px solid #f3e0cc;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(160, 100, 50, 0.12);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 550;
+            color: #7c5f3d;
+            margin-bottom: 1rem;
+            border-left: 6px solid #eac094;
+            padding-left: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #7e623f;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .card p, .card li {
+            color: #4a3927;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+            margin-top: 0.6rem;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #c28f5a;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 1.8rem 1.5rem;
+            }
+        }
+
+        .feature-item {
+            background: #fbf3ea;
+            padding: 1.2rem 1.4rem;
+            border-radius: 20px 8px 20px 8px;
+            border-left: 4px solid #dcb185;
+        }
+
+        .feature-item strong {
+            color: #8f6b40;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item {
+            margin: 1rem 0;
+            padding: 0.8rem 1.2rem;
+            background: #f7ede2;
+            border-radius: 18px 6px 18px 6px;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #7c5b38;
+        }
+
+        .faq-item .a {
+            margin-top: 0.2rem;
+            color: #4f3d2a;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #e7cfb0;
+            color: #4d351b;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #dbbc97;
+            font-size: 0.95rem;
+        }
+
+        .btn-link:hover {
+            background: #ddc09b;
+            transform: scale(1.02);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #e6cfb5;
+            color: #6a4f33;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #7a5c39;
+            text-decoration: none;
+            border-bottom: 1px dotted #cba97c;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #9d784b;
+        }
+
+        .inline-link {
+            color: #9d733e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #eac39a;
+            padding: 0 2px;
+            transition: background 0.15s;
+        }
+
+        .inline-link:hover {
+            background: #f7e3cc;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 2.2rem;
+            color: #7a6042;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>信息索引 · 开元棋牌</h1>
+        <p>围绕棋牌资料、规则整理、玩法变迁与平台生态的知识型内容聚合，从资料整理与信息索引的角度梳理相关脉络。</p>
+        <span class="tagline">📋 资料向 · 非评测 · 仅作信息参考</span>
+    </div>
+
+    <!-- 优势区：资料整理特色 -->
+    <div class="card">
+        <h2>整理侧重点与索引特色</h2>
+        <div class="grid-2">
+            <div class="feature-item">
+                <strong>📚 规则与术语库</strong>
+                <span>收录常见棋牌项目的基础规则、变体玩法及通用术语，便于横向比较。持续补充地方性牌类规则。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🗂️ 平台发展脉络</strong>
+                <span>梳理线上棋牌平台从网页端到移动端、从大厅模式到赛事系统的演变节点，聚合公开的版本与界面资料。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🔎 场景与赛事索引</strong>
+                <span>整理民间赛事、线上锦标赛、娱乐赛等公开信息，标注时间与参与方式，方便回溯活动记录。</span>
+            </div>
+            <div class="feature-item">
+                <strong>📖 讨论与文献指引</strong>
+                <span>汇总社区讨论、策略分析、历史考据等公开内容，为研究者或爱好者提供可追溯的线索。</span>
+            </div>
+        </div>
+        <p style="margin-top: 1.4rem;">本页作为资料索引门户，聚焦于非时效性的通用信息整合，不涉及具体运营数据或实时状态。</p>
+    </div>
+
+    <!-- 说明区：从信息整理的角度 -->
+    <div class="card">
+        <h2>资料说明与整理原则</h2>
+        <p>棋牌文化发展多年，其规则、术语、平台版本等信息庞杂且分散。本索引尝试从可公开获取的资料中提取结构化的内容，优先整理：</p>
+        <ul style="display: block; list-style: disc; padding-left: 1.6rem; margin: 0.8rem 0;">
+            <li style="padding-left: 0.2rem; margin-bottom: 0.3rem;">主流牌类（如斗地主、麻将、德州扑克）的标准规则与常见区域变体</li>
+            <li style="padding-left: 0.2rem; margin-bottom: 0.3rem;">线上平台界面迭代的公开记录（以版本日志、新闻稿为准）</li>
+            <li style="padding-left: 0.2rem; margin-bottom: 0.3rem;">赛事体系的基本架构与历史公开数据</li>
+            <li style="padding-left: 0.2rem; margin-bottom: 0.3rem;">与棋牌相关的术语对照、概率基础等通用知识</li>
+        </ul>
+        <p>所引用的信息均来自公开渠道，并尽量标注来源或更新时间。若需深入了解某一方向，可参考原始资料或进一步检索。</p>
+        <p style="margin-top: 0.8rem;">作为索引的一部分，<a href="https://gokaiyuan.com" class="inline-link">开元棋牌</a>在资料整理中被列为线上棋牌平台的一个参考节点，其界面模式与游戏种类具有一定的代表性，常被作为比较案例收录于相关讨论中。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>FAQ 摘要 · 信息索引常见问题</h2>
+
+        <div class="faq-item">
+            <div class="q">Q：资料中是否包含实时的运营数据？</div>
+            <div class="a">不包含。本索引仅整理通用规则、术语、公开版本记录及历史赛事信息，不追踪实时在线人数、营收或活动动态。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q：规则资料是否覆盖所有地方变体？</div>
+            <div class="a">优先收录流传较广、有明确文献或社区共识的变体。地方性极强的规则会标注“区域性变体”，并尽可能提供进一步查找的关键词。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q：如何利用索引进行进一步研究？</div>
+            <div class="a">每个分类下均附有参考词条或外部链接建议，可通过关键词组合检索更详细的原文。本索引不替代原始文档，旨在提供起点。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q：平台发展脉络中的案例如何选取？</div>
+            <div class="a">选取具有公开版本记录、社区关注度较高或功能迭代明显的平台作为节点，例如<a href="https://gokaiyuan.com" class="inline-link">开元棋牌</a>因界面更迭和游戏种类扩展而被多次提及。所有案例均标注信息来源。</div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #5c4933;">更多 FAQ 持续整理中，欢迎通过公开渠道提交建议或补充资料。</p>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <span>📌 资料索引节点</span>
+        <a href="https://gokaiyuan.com">开元棋牌</a>
+        <a href="#">规则术语库</a>
+        <a href="#">赛事档案</a>
+        <a href="#">版本笔记</a>
+        <span>· 非官方资料站 · 仅供参考</span>
+    </div>
+
+    <div class="footnote">
+        内容基于公开信息整理，不构成任何推荐或引导。页面仅作知识索引用途。
+    </div>
+
+</div>
+</body>
+</html>
